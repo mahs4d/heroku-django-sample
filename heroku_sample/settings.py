@@ -67,7 +67,7 @@ AUTH_PASSWORD_VALIDATORS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -79,9 +79,9 @@ USE_L10N = True
 USE_TZ = True
 
 # static files
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = BASE_DIR / 'static'
+STATICFILES_DIRS = str(BASE_DIR / 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # heroku
