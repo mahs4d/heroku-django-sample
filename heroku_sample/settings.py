@@ -81,7 +81,7 @@ USE_TZ = True
 # static files
 STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = str(BASE_DIR / 'static')
+STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # heroku
