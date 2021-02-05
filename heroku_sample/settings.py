@@ -1,12 +1,14 @@
 from pathlib import Path
 
+import dj_database_url
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = '3764oi6^8ybz#j!5vnt$9s-zkh#m$(81)fjb!wl15if+j+pwx&'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'mahdi-heroku-django.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -70,6 +72,8 @@ DATABASES = {
         'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # time and locale
 LANGUAGE_CODE = 'en-us'
@@ -83,6 +87,10 @@ STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# media files
+MEDIA_ROOT = str(BASE_DIR / 'media')
+MEDIA_URL = '/media/'
 
 # heroku
 import django_heroku

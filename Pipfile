@@ -11,6 +11,7 @@ gunicorn = "*"
 django-heroku = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
